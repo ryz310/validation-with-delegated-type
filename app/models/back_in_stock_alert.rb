@@ -12,4 +12,7 @@
 #
 class BackInStockAlert < ApplicationRecord
   has_one :message_sending_config, as: :configurable, dependent: :destroy, touch: true
+
+  # message_sending_config が有効な場合のみ api_key を必須にしたい
+  validates :api_key, presence: true, if: -> { message_sending_config&.enabled? }
 end
