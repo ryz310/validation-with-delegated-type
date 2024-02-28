@@ -20,6 +20,9 @@ class MessageSendingConfig < ApplicationRecord
     BackInStockAlert
   ], inverse_of: :message_sending_config
 
+  # configurable のバリデーションエラーを伝搬させるために必要
+  accepts_nested_attributes_for :configurable
+
   before_validation lambda {
     puts '=' * 100
     puts 'before_validation at MessageSendingConfig'
