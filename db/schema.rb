@@ -10,5 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_004441) do
+  create_table "message_sending_configs", force: :cascade do |t|
+    t.string "configurable_type", null: false
+    t.integer "configurable_id", null: false
+    t.boolean "enabled", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["configurable_type", "configurable_id"], name: "index_message_sending_configs_on_configurable"
+  end
+
 end
