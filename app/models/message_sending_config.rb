@@ -16,5 +16,7 @@
 #  index_message_sending_configs_on_configurable  (configurable_type,configurable_id)
 #
 class MessageSendingConfig < ApplicationRecord
-  belongs_to :configurable
+  delegated_type :configurable, dependent: :destroy, types: %w[
+    BackInStockAlert
+  ]
 end
