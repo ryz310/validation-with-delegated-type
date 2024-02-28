@@ -18,7 +18,7 @@
 class MessageSendingConfig < ApplicationRecord
   delegated_type :configurable, dependent: :destroy, types: %w[
     BackInStockAlert
-  ]
+  ], inverse_of: :message_sending_config
 
   before_validation lambda {
     puts '=' * 100
