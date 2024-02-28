@@ -22,10 +22,4 @@ class MessageSendingConfig < ApplicationRecord
 
   # configurable のバリデーションエラーを伝搬させるために必要
   accepts_nested_attributes_for :configurable
-
-  before_validation lambda {
-    puts '=' * 100
-    puts 'before_validation at MessageSendingConfig'
-    puts '=' * 100
-  }
 end
